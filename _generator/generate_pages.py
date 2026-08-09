@@ -152,7 +152,7 @@ def build_contact():
     <p class="updated">We'd like to hear from you.</p>
     <p>India Everyday Tools is an independently run project. If you've spotted an incorrect calculation, have a suggestion for a new calculator, or just want to share feedback, please reach out.</p>
     <h2>Email</h2>
-    <p>You can reach us at <strong>hello@indiaeverydaytools.com</strong> (replace with your real support email address before publishing).</p>
+    <p>You can reach us at <strong>hello@india-everyday-tools.onrender.com</strong> (replace with your real support email address before publishing).</p>
     <h2>What to include</h2>
     <ul>
       <li>The name of the calculator you're writing about, if applicable.</li>

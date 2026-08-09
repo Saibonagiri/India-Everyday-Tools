@@ -90,7 +90,7 @@ Since this is a static site, you can host it for free on any of these:
 - **Any regular web host / shared hosting / cPanel:** upload the files via FTP — there's nothing to install or configure.
 
 Before going live:
-- Update the placeholder domain `https://www.indiaeverydaytools.com` in `sitemap.xml`, `robots.txt`
+- Update the placeholder domain `https://www.india-everyday-tools.onrender.com` in `sitemap.xml`, `robots.txt`
   and inside `_generator/build.py` (`SITE_URL`) to your real domain.
 - Update the placeholder email address in `contact.html`.
 - Add real "Last updated" dates to `privacy-policy.html`, `terms-of-use.html` and `disclaimer.html`.

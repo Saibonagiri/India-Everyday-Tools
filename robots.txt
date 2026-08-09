@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.indiaeverydaytools.com/sitemap.xml
+Sitemap: https://www.india-everyday-tools.onrender.com/sitemap.xml

@@ -10,7 +10,7 @@ import os
 ROOT = os.path.dirname(os.path.abspath(__file__))
 
 SITE_NAME = "India Everyday Tools"
-SITE_URL = "https://www.indiaeverydaytools.com"  # placeholder — update after you buy a domain
+SITE_URL = "https://www.india-everyday-tools.onrender.com"  # placeholder — update after you buy a domain
 
 FONT_LINK = (
     '<link rel="preconnect" href="https://fonts.googleapis.com">'
