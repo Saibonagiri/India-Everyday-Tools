@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compound Interest Calculator</title>
+<meta name="description" content="Calculate compound interest and final amount for any principal, rate, time and compounding frequency.">
+<link rel="canonical" href="https://www.indiaeverydaytools.com/compound-interest.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compound Interest Calculator">
+<meta property="og:description" content="Calculate compound interest and final amount for any principal, rate, time and compounding frequency.">
+<meta property="og:url" content="https://www.indiaeverydaytools.com/compound-interest.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23E34234%22/></svg>">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="12" y1="15" x2="12" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></span>
+        <span>India Everyday Tools<small>Simple tools for everyday calculations</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+      <div class="header-actions">
+        <form class="header-search search-wrap" id="headerSearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="headerSearchInput" placeholder="Search for a calculator..." aria-label="Search for a calculator" autocomplete="off">
+          <div class="search-results" id="headerSearchResults"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel">
+      <form class="header-search search-wrap" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search for a calculator..." aria-label="Search for a calculator" oninput="document.getElementById('headerSearchInput').value=this.value; document.getElementById('headerSearchInput').dispatchEvent(new Event('input'));">
+      </form>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span class="sep">/</span> <a href="all-tools.html">All Tools</a> <span class="sep">/</span> <span class="current">Compound Interest Calculator</span>
+    </div>
+  </nav>
+  <section class="calc-page-head">
+    <div class="container">
+      <h1>Compound Interest Calculator</h1>
+      <p class="intro">See how your money grows over time with compound interest, at any compounding frequency.</p>
+    </div>
+  </section>
+  <section class="calc-layout">
+    <div class="calc-card">
+      <div class="field-group">
+        <label for="principal">Principal amount</label>
+        <div class="input-prefix-wrap"><span class="prefix">₹</span><input type="number" id="principal" placeholder="e.g. 100000"></div>
+        <div class="error-text" id="principalError"></div>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="rate">Interest rate (% per year)</label>
+          <input type="number" id="rate" placeholder="e.g. 7.5" step="0.01">
+          <div class="error-text" id="rateError"></div>
+        </div>
+        <div class="field-group">
+          <label for="time">Time period (years)</label>
+          <input type="number" id="time" placeholder="e.g. 5" step="0.1">
+          <div class="error-text" id="timeError"></div>
+        </div>
+      </div>
+      <div class="field-group">
+        <label>Compounding frequency</label>
+        <div class="chip-group" id="freqChips">
+          <button type="button" class="chip" data-n="1">Annually</button>
+          <button type="button" class="chip" data-n="2">Semi-annually</button>
+          <button type="button" class="chip" data-n="4">Quarterly</button>
+          <button type="button" class="chip selected" data-n="12">Monthly</button>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="calcBtn">Calculate</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      </div>
+      <div class="result-card" id="result">
+        <div class="result-main">
+          <div class="result-label">Final Amount</div>
+          <div class="result-value" id="rTotal">—</div>
+        </div>
+        <div class="result-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="result-item"><div class="r-label">Principal</div><div class="r-value" id="rPrincipal">-</div></div>
+          <div class="result-item"><div class="r-label">Interest Earned</div><div class="r-value" id="rInterest">-</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-info">
+    <h2>What is compound interest?</h2>
+    <p>Compound interest is calculated on the principal plus any interest already earned, so returns grow faster the more frequently interest is compounded. This is how most fixed deposits, recurring deposits and long-term investments actually grow.</p>
+    <div class="formula-box">A = P × (1 + r/n)^(n × t)
+Compound Interest = A − P
+
+P = Principal, r = Annual rate (as a decimal), n = Compounding frequency per year, t = Time in years</div>
+    <h2>How to use this calculator</h2>
+    <ol>
+      <li>Enter your principal (starting) amount.</li>
+      <li>Enter the annual interest rate.</li>
+      <li>Enter the time period in years.</li>
+      <li>Choose how often interest is compounded — annually, semi-annually, quarterly or monthly.</li>
+      <li>Press <strong>Calculate</strong> to see the final amount and total interest earned.</li>
+    </ol>
+    <h2>Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>Why does compounding frequency matter? <span class="plus">+</span></summary>
+        <p>The more often interest is added back to the principal, the sooner it starts earning interest itself. Monthly compounding will produce a slightly higher return than annual compounding at the same stated rate.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's a realistic compounding frequency for Indian bank deposits? <span class="plus">+</span></summary>
+        <p>This varies by bank and product — many fixed deposits compound quarterly, while some recurring deposits and savings accounts compound monthly or annually. Check your specific product's terms.</p>
+      </details>
+      <details class="faq-item">
+        <summary>How is this different from simple interest? <span class="plus">+</span></summary>
+        <p>Simple interest is calculated only on the original principal throughout, while compound interest is calculated on a growing balance that includes previously earned interest — see our Simple Interest Calculator for a direct comparison.</p>
+      </details>
+    <h2>Related Calculators</h2>
+    <div class="related-tools" id="relatedTools"></div>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">India Everyday Tools</div>
+        <p>Free, fast, everyday calculators and converters for India. Every calculation runs locally in your browser — no sign-up, no data collection.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-tools.html">All Calculators</a></li>
+          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="index.html#popular">Popular Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <strong>India Everyday Tools</strong>. All calculations are for general informational purposes only.
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  renderRelated('#relatedTools', ['si', 'emi', 'salary']);
+</script>
+<script>
+  const principal = document.getElementById('principal'), pErr = document.getElementById('principalError');
+  const rate = document.getElementById('rate'), rErr = document.getElementById('rateError');
+  const time = document.getElementById('time'), tErr = document.getElementById('timeError');
+  const result = document.getElementById('result');
+  let n = 12;
+
+  document.getElementById('freqChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip'); if (!chip) return;
+    document.querySelectorAll('#freqChips .chip').forEach(c => c.classList.remove('selected'));
+    chip.classList.add('selected');
+    n = parseInt(chip.dataset.n, 10);
+  });
+
+  function calculate() {
+    [principal, rate, time].forEach(i => i.classList.remove('input-error'));
+    [pErr, rErr, tErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    let ok = true;
+    const P = parseNum(principal.value), R = parseNum(rate.value), T = parseNum(time.value);
+    if (isNaN(P) || P <= 0) { showError(principal, pErr, 'Enter a principal amount greater than 0.'); ok = false; }
+    if (isNaN(R) || R < 0) { showError(rate, rErr, 'Enter a valid interest rate.'); ok = false; }
+    if (isNaN(T) || T <= 0) { showError(time, tErr, 'Enter a time period greater than 0.'); ok = false; }
+    if (!ok) { result.classList.remove('show'); return; }
+
+    const r = R / 100;
+    const A = P * Math.pow(1 + r / n, n * T);
+    const ci = A - P;
+    document.getElementById('rTotal').textContent = formatINR(A);
+    document.getElementById('rPrincipal').textContent = formatINR(P);
+    document.getElementById('rInterest').textContent = formatINR(ci);
+    result.classList.add('show');
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    principal.value=''; rate.value=''; time.value='';
+    document.querySelectorAll('#freqChips .chip').forEach(c => c.classList.remove('selected'));
+    document.querySelector('#freqChips .chip[data-n="12"]').classList.add('selected');
+    n = 12;
+    [principal, rate, time].forEach(i => i.classList.remove('input-error'));
+    [pErr, rErr, tErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    result.classList.remove('show');
+  });
+</script>
+</body>
+</html>

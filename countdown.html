@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Date Countdown Calculator - Days Remaining</title>
+<meta name="description" content="Count down the days, months and days remaining to any future date, event or deadline.">
+<link rel="canonical" href="https://www.indiaeverydaytools.com/countdown.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Date Countdown Calculator - Days Remaining">
+<meta property="og:description" content="Count down the days, months and days remaining to any future date, event or deadline.">
+<meta property="og:url" content="https://www.indiaeverydaytools.com/countdown.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23E34234%22/></svg>">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="12" y1="15" x2="12" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></span>
+        <span>India Everyday Tools<small>Simple tools for everyday calculations</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+      <div class="header-actions">
+        <form class="header-search search-wrap" id="headerSearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="headerSearchInput" placeholder="Search for a calculator..." aria-label="Search for a calculator" autocomplete="off">
+          <div class="search-results" id="headerSearchResults"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel">
+      <form class="header-search search-wrap" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search for a calculator..." aria-label="Search for a calculator" oninput="document.getElementById('headerSearchInput').value=this.value; document.getElementById('headerSearchInput').dispatchEvent(new Event('input'));">
+      </form>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span class="sep">/</span> <a href="all-tools.html">All Tools</a> <span class="sep">/</span> <span class="current">Date Countdown</span>
+    </div>
+  </nav>
+  <section class="calc-page-head">
+    <div class="container">
+      <h1>Date Countdown</h1>
+      <p class="intro">Count down the days remaining to any future date, birthday, event or deadline.</p>
+    </div>
+  </section>
+  <section class="calc-layout">
+    <div class="calc-card">
+      <div class="field-group">
+        <label for="targetDate">Target date</label>
+        <input type="date" id="targetDate">
+        <div class="error-text" id="targetError"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="calcBtn">Calculate Countdown</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      </div>
+      <div class="result-card" id="result">
+        <div class="result-main">
+          <div class="result-label" id="rLabel">Days Remaining</div>
+          <div class="result-value" id="rMain">—</div>
+        </div>
+        <div class="result-grid">
+          <div class="result-item"><div class="r-label">Months</div><div class="r-value" id="rMonths">-</div></div>
+          <div class="result-item"><div class="r-label">Days</div><div class="r-value" id="rDays">-</div></div>
+          <div class="result-item"><div class="r-label">Total Days</div><div class="r-value" id="rTotalDays">-</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-info">
+    <h2>How the countdown works</h2>
+    <p>This tool calculates exactly how many days remain between today and any future date you choose — useful for counting down to a birthday, anniversary, exam, trip, or deadline. It also breaks the remaining time down into an approximate number of months and days.</p>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Select a future date.</li>
+      <li>Press <strong>Calculate Countdown</strong> to see the days remaining.</li>
+    </ol>
+    <h2>Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>What happens if I choose a past date? <span class="plus">+</span></summary>
+        <p>The calculator is designed for future dates. If you select a date that has already passed, it will let you know instead of showing a countdown.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does today count as day zero or day one? <span class="plus">+</span></summary>
+        <p>The total days figure is the number of full days between today and the target date, so if the target date is tomorrow, it will show 1 day remaining.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I use this to count down to an exam or event? <span class="plus">+</span></summary>
+        <p>Yes — this works for any future date, whether it's a personal milestone, a deadline, or an event you're planning for.</p>
+      </details>
+    <h2>Related Calculators</h2>
+    <div class="related-tools" id="relatedTools"></div>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">India Everyday Tools</div>
+        <p>Free, fast, everyday calculators and converters for India. Every calculation runs locally in your browser — no sign-up, no data collection.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-tools.html">All Calculators</a></li>
+          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="index.html#popular">Popular Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <strong>India Everyday Tools</strong>. All calculations are for general informational purposes only.
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  renderRelated('#relatedTools', ['age', 'datediff', 'attendance']);
+</script>
+<script>
+  const targetDate = document.getElementById('targetDate');
+  const targetError = document.getElementById('targetError');
+  const result = document.getElementById('result');
+  const today = new Date(); today.setHours(0,0,0,0);
+  const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
+  targetDate.value = tomorrow.toISOString().slice(0,10);
+  targetDate.min = today.toISOString().slice(0,10);
+
+  function daysInMonth(y, m) { return new Date(y, m + 1, 0).getDate(); }
+
+  function calculate() {
+    targetError.textContent=''; targetError.classList.remove('show');
+    if (!targetDate.value) { targetError.textContent = 'Please select a target date.'; targetError.classList.add('show'); result.classList.remove('show'); return; }
+    const target = new Date(targetDate.value + 'T00:00:00');
+    if (target < today) { targetError.textContent = 'That date has already passed. Choose a future date.'; targetError.classList.add('show'); result.classList.remove('show'); return; }
+
+    const totalDays = Math.round((target - today) / 86400000);
+    let months = target.getMonth() - today.getMonth() + (target.getFullYear() - today.getFullYear()) * 12;
+    let days = target.getDate() - today.getDate();
+    if (days < 0) {
+      months -= 1;
+      const prevMonth = target.getMonth() === 0 ? 11 : target.getMonth() - 1;
+      const prevYear = target.getMonth() === 0 ? target.getFullYear() - 1 : target.getFullYear();
+      days += daysInMonth(prevYear, prevMonth);
+    }
+
+    document.getElementById('rMain').textContent = `${formatNumber(totalDays,0)} day${totalDays === 1 ? '' : 's'}`;
+    document.getElementById('rMonths').textContent = months;
+    document.getElementById('rDays').textContent = days;
+    document.getElementById('rTotalDays').textContent = formatNumber(totalDays,0);
+    result.classList.add('show');
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    targetDate.value = tomorrow.toISOString().slice(0,10);
+    targetError.textContent=''; targetError.classList.remove('show');
+    result.classList.remove('show');
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter - Length, Weight, Temperature & More</title>
+<meta name="description" content="Convert length, weight, temperature, area, volume, speed and data storage units instantly, free and entirely in your browser.">
+<link rel="canonical" href="https://www.indiaeverydaytools.com/unit-converter.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Unit Converter - Length, Weight, Temperature & More">
+<meta property="og:description" content="Convert length, weight, temperature, area, volume, speed and data storage units instantly, free and entirely in your browser.">
+<meta property="og:url" content="https://www.indiaeverydaytools.com/unit-converter.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23E34234%22/></svg>">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="12" y1="15" x2="12" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></span>
+        <span>India Everyday Tools<small>Simple tools for everyday calculations</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+      <div class="header-actions">
+        <form class="header-search search-wrap" id="headerSearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="headerSearchInput" placeholder="Search for a calculator..." aria-label="Search for a calculator" autocomplete="off">
+          <div class="search-results" id="headerSearchResults"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel">
+      <form class="header-search search-wrap" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search for a calculator..." aria-label="Search for a calculator" oninput="document.getElementById('headerSearchInput').value=this.value; document.getElementById('headerSearchInput').dispatchEvent(new Event('input'));">
+      </form>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span class="sep">/</span> <a href="all-tools.html">All Tools</a> <span class="sep">/</span> <span class="current">Unit Converter</span>
+    </div>
+  </nav>
+  <section class="calc-page-head">
+    <div class="container">
+      <h1>Unit Converter</h1>
+      <p class="intro">Convert between length, weight, temperature, area, volume, speed and data storage units.</p>
+    </div>
+  </section>
+  <section class="calc-layout">
+    <div class="calc-card">
+      <div class="field-group">
+        <label for="unitCategory">Category</label>
+        <select id="unitCategory">
+          <option value="length">Length</option>
+          <option value="weight">Weight / Mass</option>
+          <option value="temperature">Temperature</option>
+          <option value="area">Area</option>
+          <option value="volume">Volume</option>
+          <option value="speed">Speed</option>
+          <option value="data">Data / Storage</option>
+        </select>
+      </div>
+      <div class="field-row">
+        <div class="field-group">
+          <label for="unitFrom">From</label>
+          <select id="unitFrom"></select>
+        </div>
+        <div class="field-group">
+          <label for="unitTo">To</label>
+          <select id="unitTo"></select>
+        </div>
+      </div>
+      <div class="field-group">
+        <label for="unitValue">Value</label>
+        <input type="number" id="unitValue" placeholder="Enter a value" value="1">
+        <div class="error-text" id="unitError"></div>
+      </div>
+      <div class="result-card show" id="result">
+        <div class="result-main">
+          <div class="result-label" id="rLabel">Result</div>
+          <div class="result-value" id="rMain">—</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-info">
+    <h2>Supported conversions</h2>
+    <p>This converter supports length, weight/mass, temperature, area, volume, speed, and digital storage. Choose a category, pick your "from" and "to" units, and enter a value — the result updates instantly as you type.</p>
+    <h2>How conversions work</h2>
+    <p>For most categories, each unit is converted to a common base unit (such as metres for length, or kilograms for weight) and then converted from that base unit into your target unit. Temperature is handled separately since Celsius, Fahrenheit and Kelvin use different formulas rather than a simple multiplier.</p>
+    <h2>Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>Why is temperature handled differently? <span class="plus">+</span></summary>
+        <p>Celsius, Fahrenheit and Kelvin scales don't share a common zero point or proportional scale, so converting between them uses specific formulas (like °F = °C × 9/5 + 32) rather than a simple multiplication factor used for length or weight.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Are data storage units calculated in 1000s or 1024s? <span class="plus">+</span></summary>
+        <p>This calculator uses the binary convention (1 KB = 1024 bytes, 1 MB = 1024 KB, and so on), which matches how operating systems typically report file and storage sizes.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I convert in both directions? <span class="plus">+</span></summary>
+        <p>Yes — simply swap the "From" and "To" units, or enter a value in either field's unit and read the equivalent result.</p>
+      </details>
+    <h2>Related Calculators</h2>
+    <div class="related-tools" id="relatedTools"></div>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">India Everyday Tools</div>
+        <p>Free, fast, everyday calculators and converters for India. Every calculation runs locally in your browser — no sign-up, no data collection.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-tools.html">All Calculators</a></li>
+          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="index.html#popular">Popular Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <strong>India Everyday Tools</strong>. All calculations are for general informational purposes only.
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  renderRelated('#relatedTools', ['percentage', 'average', 'gst']);
+</script>
+<script>
+  const UNIT_DATA = {
+    length: { base: 'm', units: {
+      mm: 0.001, cm: 0.01, m: 1, km: 1000, inch: 0.0254, foot: 0.3048, yard: 0.9144, mile: 1609.344
+    }, labels: { mm:'Millimetre (mm)', cm:'Centimetre (cm)', m:'Metre (m)', km:'Kilometre (km)', inch:'Inch (in)', foot:'Foot (ft)', yard:'Yard (yd)', mile:'Mile (mi)' } },
+    weight: { base: 'kg', units: {
+      mg: 0.000001, g: 0.001, kg: 1, tonne: 1000, ounce: 0.0283495, pound: 0.453592
+    }, labels: { mg:'Milligram (mg)', g:'Gram (g)', kg:'Kilogram (kg)', tonne:'Tonne (t)', ounce:'Ounce (oz)', pound:'Pound (lb)' } },
+    area: { base: 'sqm', units: {
+      sqmm: 0.000001, sqcm: 0.0001, sqm: 1, hectare: 10000, sqkm: 1000000, acre: 4046.8564224, sqft: 0.09290304, sqyard: 0.83612736, sqmile: 2589988.110336
+    }, labels: { sqmm:'Sq. Millimetre', sqcm:'Sq. Centimetre', sqm:'Sq. Metre', hectare:'Hectare', sqkm:'Sq. Kilometre', acre:'Acre', sqft:'Sq. Foot', sqyard:'Sq. Yard', sqmile:'Sq. Mile' } },
+    volume: { base: 'l', units: {
+      ml: 0.001, l: 1, cubicm: 1000, gallon: 3.785411784, quart: 0.946352946, pint: 0.473176473, cup: 0.236588236, cubicft: 28.316846592
+    }, labels: { ml:'Millilitre (ml)', l:'Litre (l)', cubicm:'Cubic Metre', gallon:'Gallon (US)', quart:'Quart (US)', pint:'Pint (US)', cup:'Cup (US)', cubicft:'Cubic Foot' } },
+    speed: { base: 'mps', units: {
+      mps: 1, kmph: 0.277778, mph: 0.44704, knot: 0.514444
+    }, labels: { mps:'Metres/second', kmph:'Km/hour', mph:'Miles/hour', knot:'Knot' } },
+    data: { base: 'byte', units: {
+      bit: 0.125, byte: 1, kb: 1024, mb: 1048576, gb: 1073741824, tb: 1099511627776
+    }, labels: { bit:'Bit', byte:'Byte', kb:'Kilobyte (KB)', mb:'Megabyte (MB)', gb:'Gigabyte (GB)', tb:'Terabyte (TB)' } },
+  };
+  const TEMP_LABELS = { celsius: 'Celsius (°C)', fahrenheit: 'Fahrenheit (°F)', kelvin: 'Kelvin (K)' };
+
+  const category = document.getElementById('unitCategory');
+  const fromSel = document.getElementById('unitFrom');
+  const toSel = document.getElementById('unitTo');
+  const valueInput = document.getElementById('unitValue');
+  const unitError = document.getElementById('unitError');
+  const result = document.getElementById('result');
+
+  function populateUnits() {
+    const cat = category.value;
+    fromSel.innerHTML = ''; toSel.innerHTML = '';
+    if (cat === 'temperature') {
+      Object.keys(TEMP_LABELS).forEach(key => {
+        fromSel.add(new Option(TEMP_LABELS[key], key));
+        toSel.add(new Option(TEMP_LABELS[key], key));
+      });
+      fromSel.value = 'celsius'; toSel.value = 'fahrenheit';
+    } else {
+      const data = UNIT_DATA[cat];
+      Object.keys(data.units).forEach(key => {
+        fromSel.add(new Option(data.labels[key], key));
+        toSel.add(new Option(data.labels[key], key));
+      });
+      const keys = Object.keys(data.units);
+      fromSel.value = keys[0]; toSel.value = keys[Math.min(2, keys.length - 1)];
+    }
+    convert();
+  }
+
+  function toCelsius(v, unit) {
+    if (unit === 'celsius') return v;
+    if (unit === 'fahrenheit') return (v - 32) * 5/9;
+    if (unit === 'kelvin') return v - 273.15;
+  }
+  function fromCelsius(v, unit) {
+    if (unit === 'celsius') return v;
+    if (unit === 'fahrenheit') return v * 9/5 + 32;
+    if (unit === 'kelvin') return v + 273.15;
+  }
+
+  function convert() {
+    unitError.textContent=''; unitError.classList.remove('show');
+    const v = parseNum(valueInput.value);
+    if (isNaN(v)) { document.getElementById('rMain').textContent = '—'; return; }
+    const cat = category.value;
+    let out;
+    if (cat === 'temperature') {
+      out = fromCelsius(toCelsius(v, fromSel.value), toSel.value);
+    } else {
+      const data = UNIT_DATA[cat];
+      const baseVal = v * data.units[fromSel.value];
+      out = baseVal / data.units[toSel.value];
+    }
+    const fromLabel = cat === 'temperature' ? TEMP_LABELS[fromSel.value] : UNIT_DATA[cat].labels[fromSel.value];
+    const toLabel = cat === 'temperature' ? TEMP_LABELS[toSel.value] : UNIT_DATA[cat].labels[toSel.value];
+    document.getElementById('rLabel').textContent = `${formatNumber(v)} ${fromLabel} =`;
+    document.getElementById('rMain').textContent = `${formatNumber(out, 6)} ${toLabel}`;
+  }
+
+  category.addEventListener('change', populateUnits);
+  fromSel.addEventListener('change', convert);
+  toSel.addEventListener('change', convert);
+  valueInput.addEventListener('input', convert);
+
+  populateUnits();
+</script>
+</body>
+</html>

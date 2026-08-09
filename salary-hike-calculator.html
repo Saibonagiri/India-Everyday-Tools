@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salary Hike Calculator</title>
+<meta name="description" content="Calculate your new salary after a percentage hike, with both monthly and annual figures.">
+<link rel="canonical" href="https://www.indiaeverydaytools.com/salary-hike-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Salary Hike Calculator">
+<meta property="og:description" content="Calculate your new salary after a percentage hike, with both monthly and annual figures.">
+<meta property="og:url" content="https://www.indiaeverydaytools.com/salary-hike-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23E34234%22/></svg>">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="12" y1="15" x2="12" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></span>
+        <span>India Everyday Tools<small>Simple tools for everyday calculations</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+      <div class="header-actions">
+        <form class="header-search search-wrap" id="headerSearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="headerSearchInput" placeholder="Search for a calculator..." aria-label="Search for a calculator" autocomplete="off">
+          <div class="search-results" id="headerSearchResults"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel">
+      <form class="header-search search-wrap" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search for a calculator..." aria-label="Search for a calculator" oninput="document.getElementById('headerSearchInput').value=this.value; document.getElementById('headerSearchInput').dispatchEvent(new Event('input'));">
+      </form>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span class="sep">/</span> <a href="all-tools.html">All Tools</a> <span class="sep">/</span> <span class="current">Salary Hike Calculator</span>
+    </div>
+  </nav>
+  <section class="calc-page-head">
+    <div class="container">
+      <h1>Salary Hike Calculator</h1>
+      <p class="intro">Calculate your new salary and hike amount after a percentage increase.</p>
+    </div>
+  </section>
+  <section class="calc-layout">
+    <div class="calc-card">
+      <div class="toggle-group" id="salaryUnit">
+        <button data-unit="monthly" class="selected">Monthly Salary</button>
+        <button data-unit="annual">Annual Salary (CTC)</button>
+      </div>
+      <div class="field-group" style="margin-top:20px;">
+        <label for="currentSalary" id="salaryLabel">Current monthly salary</label>
+        <div class="input-prefix-wrap"><span class="prefix">₹</span><input type="number" id="currentSalary" placeholder="e.g. 60000"></div>
+        <div class="error-text" id="salaryError"></div>
+      </div>
+      <div class="field-group">
+        <label for="hikePct">Hike percentage</label>
+        <input type="number" id="hikePct" placeholder="e.g. 15">
+        <div class="error-text" id="hikeError"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="calcBtn">Calculate New Salary</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      </div>
+      <div class="result-card" id="result">
+        <div class="result-main">
+          <div class="result-label" id="rLabel">New Monthly Salary</div>
+          <div class="result-value" id="rMain">—</div>
+        </div>
+        <div class="result-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="result-item"><div class="r-label">Hike Amount</div><div class="r-value" id="rHike">-</div></div>
+          <div class="result-item"><div class="r-label" id="rOtherLabel">New Annual Salary</div><div class="r-value" id="rOther">-</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-info">
+    <h2>How salary hike is calculated</h2>
+    <p>A salary hike percentage is applied to your current salary to work out the hike amount, which is then added to get your new salary. This calculator also shows the equivalent annual or monthly figure so you can see both views at once.</p>
+    <div class="formula-box">Hike Amount = Current Salary × (Hike % ÷ 100)
+New Salary = Current Salary + Hike Amount</div>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Choose whether you're entering a monthly salary or an annual CTC.</li>
+      <li>Enter your current salary figure.</li>
+      <li>Enter the hike percentage you've been offered or are expecting.</li>
+      <li>Press <strong>Calculate New Salary</strong> to see your new salary, the hike amount, and the equivalent monthly or annual figure.</li>
+    </ol>
+    <h2>Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>Does this account for tax deductions? <span class="plus">+</span></summary>
+        <p>No, this calculator shows the gross hike on the salary figure you enter. Actual take-home pay depends on tax slabs, deductions and your CTC structure, which vary per individual.</p>
+      </details>
+      <details class="faq-item">
+        <summary>What's the difference between monthly salary and CTC? <span class="plus">+</span></summary>
+        <p>Monthly salary is generally your in-hand or gross monthly pay, while annual CTC (Cost to Company) often includes benefits, bonuses and employer contributions beyond your monthly cash salary. Choose whichever figure matches what you're entering.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I use this for a salary decrease? <span class="plus">+</span></summary>
+        <p>This calculator is designed for positive hikes. For a pay cut, you can still get an estimate by treating the percentage as a decrease and interpreting the "hike amount" as the reduction — though the exact wording is aimed at raises.</p>
+      </details>
+    <h2>Related Calculators</h2>
+    <div class="related-tools" id="relatedTools"></div>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">India Everyday Tools</div>
+        <p>Free, fast, everyday calculators and converters for India. Every calculation runs locally in your browser — no sign-up, no data collection.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-tools.html">All Calculators</a></li>
+          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="index.html#popular">Popular Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <strong>India Everyday Tools</strong>. All calculations are for general informational purposes only.
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  renderRelated('#relatedTools', ['ci', 'percentage', 'emi']);
+</script>
+<script>
+  const currentSalary = document.getElementById('currentSalary'), sErr = document.getElementById('salaryError');
+  const hikePct = document.getElementById('hikePct'), hErr = document.getElementById('hikeError');
+  const result = document.getElementById('result');
+  let unit = 'monthly';
+
+  document.getElementById('salaryUnit').addEventListener('click', (e) => {
+    const btn = e.target.closest('button'); if (!btn) return;
+    document.querySelectorAll('#salaryUnit button').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    unit = btn.dataset.unit;
+    document.getElementById('salaryLabel').textContent = unit === 'monthly' ? 'Current monthly salary' : 'Current annual salary (CTC)';
+    document.getElementById('rLabel').textContent = unit === 'monthly' ? 'New Monthly Salary' : 'New Annual Salary';
+    document.getElementById('rOtherLabel').textContent = unit === 'monthly' ? 'New Annual Salary' : 'New Monthly Salary';
+    result.classList.remove('show');
+  });
+
+  function calculate() {
+    [currentSalary, hikePct].forEach(i => i.classList.remove('input-error'));
+    [sErr, hErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    let ok = true;
+    const s = parseNum(currentSalary.value), h = parseNum(hikePct.value);
+    if (isNaN(s) || s <= 0) { showError(currentSalary, sErr, 'Enter a salary greater than 0.'); ok = false; }
+    if (isNaN(h)) { showError(hikePct, hErr, 'Enter a valid hike percentage.'); ok = false; }
+    if (!ok) { result.classList.remove('show'); return; }
+
+    const hikeAmt = s * (h / 100);
+    const newSalary = s + hikeAmt;
+    const otherView = unit === 'monthly' ? newSalary * 12 : newSalary / 12;
+
+    document.getElementById('rMain').textContent = formatINR(newSalary);
+    document.getElementById('rHike').textContent = formatINR(hikeAmt);
+    document.getElementById('rOther').textContent = formatINR(otherView);
+    result.classList.add('show');
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    currentSalary.value=''; hikePct.value='';
+    [currentSalary, hikePct].forEach(i => i.classList.remove('input-error'));
+    [sErr, hErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    result.classList.remove('show');
+  });
+</script>
+</body>
+</html>

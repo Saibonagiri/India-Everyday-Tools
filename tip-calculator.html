@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Calculator - Split the Bill Instantly</title>
+<meta name="description" content="Calculate the tip amount, total bill, and amount per person for any bill and group size.">
+<link rel="canonical" href="https://www.indiaeverydaytools.com/tip-calculator.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tip Calculator - Split the Bill Instantly">
+<meta property="og:description" content="Calculate the tip amount, total bill, and amount per person for any bill and group size.">
+<meta property="og:url" content="https://www.indiaeverydaytools.com/tip-calculator.html">
+<meta name="twitter:card" content="summary">
+<meta name="robots" content="index, follow">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 rx=%226%22 fill=%22%23E34234%22/></svg>">
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="brand">
+        <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="8" y2="11"/><line x1="12" y1="11" x2="12" y2="11"/><line x1="16" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="8" y2="15"/><line x1="12" y1="15" x2="12" y2="15"/><line x1="16" y1="15" x2="16" y2="15"/></svg></span>
+        <span>India Everyday Tools<small>Simple tools for everyday calculations</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+      <div class="header-actions">
+        <form class="header-search search-wrap" id="headerSearchForm" role="search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="headerSearchInput" placeholder="Search for a calculator..." aria-label="Search for a calculator" autocomplete="off">
+          <div class="search-results" id="headerSearchResults"></div>
+        </form>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-panel">
+      <form class="header-search search-wrap" role="search" onsubmit="return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" placeholder="Search for a calculator..." aria-label="Search for a calculator" oninput="document.getElementById('headerSearchInput').value=this.value; document.getElementById('headerSearchInput').dispatchEvent(new Event('input'));">
+      </form>
+      <nav aria-label="Mobile">
+        <a href="index.html">Home</a>
+      <a href="all-tools.html">All Tools</a>
+      <a href="all-tools.html#categories">Categories</a>
+      <a href="index.html#popular">Popular Tools</a>
+      </nav>
+    </div>
+  </header>
+<main>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="index.html">Home</a> <span class="sep">/</span> <a href="all-tools.html">All Tools</a> <span class="sep">/</span> <span class="current">Tip Calculator</span>
+    </div>
+  </nav>
+  <section class="calc-page-head">
+    <div class="container">
+      <h1>Tip Calculator</h1>
+      <p class="intro">Calculate the tip, total bill, and how much each person owes.</p>
+    </div>
+  </section>
+  <section class="calc-layout">
+    <div class="calc-card">
+      <div class="field-group">
+        <label for="billAmount">Bill amount</label>
+        <div class="input-prefix-wrap"><span class="prefix">₹</span><input type="number" id="billAmount" placeholder="e.g. 1200"></div>
+        <div class="error-text" id="billError"></div>
+      </div>
+      <div class="field-group">
+        <label>Tip percentage</label>
+        <div class="chip-group" id="tipChips">
+          <button type="button" class="chip" data-rate="5">5%</button>
+          <button type="button" class="chip selected" data-rate="10">10%</button>
+          <button type="button" class="chip" data-rate="15">15%</button>
+          <button type="button" class="chip" data-rate="20">20%</button>
+        </div>
+        <input type="number" id="tipCustom" placeholder="Custom tip %" style="margin-top:10px;">
+      </div>
+      <div class="field-group">
+        <label for="peopleCount">Number of people</label>
+        <input type="number" id="peopleCount" value="1" min="1">
+        <div class="error-text" id="peopleError"></div>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-primary" id="calcBtn">Calculate Tip</button>
+        <button class="btn btn-secondary" id="resetBtn">Reset</button>
+      </div>
+      <div class="result-card" id="result">
+        <div class="result-main">
+          <div class="result-label">Total Bill</div>
+          <div class="result-value" id="rTotal">—</div>
+        </div>
+        <div class="result-grid" style="grid-template-columns:repeat(2,1fr);">
+          <div class="result-item"><div class="r-label">Tip Amount</div><div class="r-value" id="rTip">-</div></div>
+          <div class="result-item"><div class="r-label">Per Person</div><div class="r-value" id="rPerPerson">-</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="calc-info">
+    <h2>How the tip is calculated</h2>
+    <p>The tip amount is a percentage of your bill, and the total bill is your original amount plus that tip. If you're splitting the bill across a group, the per-person amount divides the total evenly.</p>
+    <div class="formula-box">Tip Amount = Bill × (Tip % ÷ 100)
+Total Bill = Bill + Tip Amount
+Per Person = Total Bill ÷ Number of People</div>
+    <h2>How to use it</h2>
+    <ol>
+      <li>Enter the bill amount.</li>
+      <li>Choose a tip percentage, or enter a custom one.</li>
+      <li>Enter how many people are splitting the bill.</li>
+      <li>Press <strong>Calculate Tip</strong> to see the total and per-person amount.</li>
+    </ol>
+    <h2>Frequently Asked Questions</h2>
+      <details class="faq-item">
+        <summary>What's a typical tip percentage in India? <span class="plus">+</span></summary>
+        <p>There's no fixed rule — many people tip around 5–10% at restaurants where service isn't already included, though this varies widely by city, establishment and personal preference.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Does this account for service charge already on the bill? <span class="plus">+</span></summary>
+        <p>No — if your bill already includes a service charge, you may not need to add an additional tip. Check your bill before adding one on top.</p>
+      </details>
+      <details class="faq-item">
+        <summary>Can I split the bill unevenly? <span class="plus">+</span></summary>
+        <p>This calculator splits the total evenly across the number of people you enter. For uneven splits, you'd need to divide individual portions manually.</p>
+      </details>
+    <h2>Related Calculators</h2>
+    <div class="related-tools" id="relatedTools"></div>
+  </section>
+</main>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">India Everyday Tools</div>
+        <p>Free, fast, everyday calculators and converters for India. Every calculation runs locally in your browser — no sign-up, no data collection.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="all-tools.html">All Calculators</a></li>
+          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="index.html#popular">Popular Tools</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms-of-use.html">Terms of Use</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="footerYear"></span> <strong>India Everyday Tools</strong>. All calculations are for general informational purposes only.
+    </div>
+  </footer>
+  <script>document.getElementById('footerYear').textContent = new Date().getFullYear();</script>
+<script src="assets/js/main.js"></script>
+<script>
+  renderRelated('#relatedTools', ['discount', 'percentage', 'average']);
+</script>
+<script>
+  const billAmount = document.getElementById('billAmount'), billErr = document.getElementById('billError');
+  const tipCustom = document.getElementById('tipCustom');
+  const peopleCount = document.getElementById('peopleCount'), peopleErr = document.getElementById('peopleError');
+  const result = document.getElementById('result');
+  let selectedTip = 10;
+
+  document.getElementById('tipChips').addEventListener('click', (e) => {
+    const chip = e.target.closest('.chip'); if (!chip) return;
+    document.querySelectorAll('#tipChips .chip').forEach(c => c.classList.remove('selected'));
+    chip.classList.add('selected');
+    selectedTip = parseFloat(chip.dataset.rate);
+    tipCustom.value = '';
+  });
+  tipCustom.addEventListener('input', () => {
+    if (tipCustom.value !== '') document.querySelectorAll('#tipChips .chip').forEach(c => c.classList.remove('selected'));
+  });
+
+  function calculate() {
+    [billAmount, peopleCount].forEach(i => i.classList.remove('input-error'));
+    [billErr, peopleErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    let ok = true;
+    const bill = parseNum(billAmount.value);
+    const people = parseNum(peopleCount.value);
+    const tipRate = tipCustom.value !== '' ? parseNum(tipCustom.value) : selectedTip;
+    if (isNaN(bill) || bill <= 0) { showError(billAmount, billErr, 'Enter a bill amount greater than 0.'); ok = false; }
+    if (isNaN(people) || people < 1) { showError(peopleCount, peopleErr, 'Enter at least 1 person.'); ok = false; }
+    if (!ok) { result.classList.remove('show'); return; }
+
+    const tipAmt = bill * (tipRate / 100);
+    const total = bill + tipAmt;
+    const perPerson = total / people;
+
+    document.getElementById('rTotal').textContent = formatINR(total);
+    document.getElementById('rTip').textContent = formatINR(tipAmt);
+    document.getElementById('rPerPerson').textContent = formatINR(perPerson);
+    result.classList.add('show');
+  }
+
+  document.getElementById('calcBtn').addEventListener('click', calculate);
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    billAmount.value=''; tipCustom.value=''; peopleCount.value='1';
+    document.querySelectorAll('#tipChips .chip').forEach(c => c.classList.remove('selected'));
+    document.querySelector('#tipChips .chip[data-rate="10"]').classList.add('selected');
+    selectedTip = 10;
+    [billAmount, peopleCount].forEach(i => i.classList.remove('input-error'));
+    [billErr, peopleErr].forEach(e => { e.textContent=''; e.classList.remove('show'); });
+    result.classList.remove('show');
+  });
+</script>
+</body>
+</html>
