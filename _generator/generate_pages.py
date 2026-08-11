@@ -167,7 +167,7 @@ def build_contact():
 def build_privacy():
     body = """<section class="content-page">
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: [add date before publishing]</p>
+    <p class="updated">Last updated: 10 August 2026</p>
     <p>This Privacy Policy explains how India Everyday Tools ("we", "this website") handles information when you use our calculators and converters.</p>
     <h2>Calculations happen in your browser</h2>
     <p>Every calculator on this website performs its calculations locally, using JavaScript that runs on your own device. The numbers and dates you enter into a calculator — such as a salary, loan amount, date of birth or CGPA — are not transmitted to our servers, stored in a database, or seen by us. When you close or refresh the page, that data is gone.</p>
@@ -192,7 +192,7 @@ def build_privacy():
 def build_terms():
     body = """<section class="content-page">
     <h1>Terms of Use</h1>
-    <p class="updated">Last updated: [add date before publishing]</p>
+    <p class="updated">Last updated: 10 August 2026</p>
     <p>By using India Everyday Tools, you agree to the following terms. Please read them before using the calculators on this website.</p>
     <h2>Use of the website</h2>
     <p>India Everyday Tools provides free calculators and converters for general informational purposes. You may use these tools for personal or professional reference, free of charge, without creating an account.</p>
@@ -217,7 +217,7 @@ def build_terms():
 def build_disclaimer():
     body = """<section class="content-page">
     <h1>Disclaimer</h1>
-    <p class="updated">Last updated: [add date before publishing]</p>
+    <p class="updated">Last updated: 10 August 2026</p>
     <p>The calculators and converters on India Everyday Tools are provided for informational and general-purpose use. Results may vary depending on the applicable rules, formulas, institutions, or assumptions used at the time of calculation.</p>
     <p>For financial, tax, legal, educational, or other important decisions, please verify the result with the relevant official source or a qualified professional before acting on it.</p>
     <h2>Financial calculators</h2>
