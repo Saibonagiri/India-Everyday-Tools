@@ -86,7 +86,7 @@ def footer_html():
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="all-tools.html">All Calculators</a></li>
-          <li><a href="all-tools.html#categories">Categories</a></li>
+          <li><a href="blog.html">Blog</a></li>
           <li><a href="index.html#popular">Popular Tools</a></li>
         </ul>
       </div>
