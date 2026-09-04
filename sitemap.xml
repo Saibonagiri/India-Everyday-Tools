@@ -110,4 +110,5 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url><loc>https://india-everyday-tools.onrender.com/blog.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url> <url><loc>https://india-everyday-tools.onrender.com/blog-emi-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url> <url><loc>https://india-everyday-tools.onrender.com/blog-gst-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url> <url><loc>https://india-everyday-tools.onrender.com/blog-cgpa-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url> <url><loc>https://india-everyday-tools.onrender.com/blog-si-vs-ci.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url> <url><loc>https://india-everyday-tools.onrender.com/blog-attendance-guide.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>
